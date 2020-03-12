@@ -1,16 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
-<%-- <jsp:include page="basic.jsp"></jsp:include> --%>
 
 
 <!-- Latest compiled and minified CSS -->
@@ -24,13 +19,12 @@
 
 
 
-<link rel="stylesheet" href="resources/dashboard.css">
 
 
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
-
-
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -45,11 +39,56 @@
   </div>
 </nav>
 
-          
-         
-          
-          	
-      
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Student List</h3>
+  </div>
+  <div class="panel-body">
+  
+  	<table class="table">
+  		<thead>
+  			<tr>
+  				<th>ID</th>
+  				<th>Loan Amount</th>
+  				<th>Loan Sanction Date</th>
+  				<th>Loan Reason</th>
+  				
+  			</tr>
+  		</thead>
+  		
+  		<tbody>
+  			
+  			
+  			<c:forEach items="${loans}" var="row" varStatus="status">
+  				
+  				<tr>
+  					<td> ${status.count}  </td>
+  					<td> ${row.loanAmount} </td>
+  					<td> ${row.loanSanctionDate} </td>
+  					<td> ${row.loanReason} </td> 
+  				</tr>
+  			
+  			</c:forEach>
+  		
+  		
+  		
+  			
+  		</tbody>
+  		
+  		
+  	</table>
+  
+  
+  
+    
+  </div>
+</div>
+
+
+
 
 </body>
 </html>
