@@ -26,18 +26,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-    	<c:forEach items="${menus}" var="row">
-    		<li><a href="${row.menuUrl}">${row.menuName}</a></li>
-    	</c:forEach>
-    </ul>
-  </div>
-</nav>
+<jsp:include page="menu.jsp"></jsp:include>
 
 
 

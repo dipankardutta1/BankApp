@@ -2,6 +2,8 @@ package com.example.demo;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +31,7 @@ public class LoginController {
 	
 	
 	@RequestMapping(value="dologin",method=RequestMethod.POST)
-	public String dologin(Model model,@RequestParam("username") String username,@RequestParam("password") String password) {
+	public String dologin(Model model,HttpSession session, @RequestParam("username") String username,@RequestParam("password") String password) {
 		
 		UserDto userDto =  loginService.findUserByUsernameAndPassword(username, password);
 		
@@ -40,7 +42,7 @@ public class LoginController {
 			
 			List<MenuDto> menus = loginService.findMenusById(userDto.getId());
 			
-			model.addAttribute("menus", menus);
+			session.setAttribute("menus", menus);
 			
 			return "dashboard";
 		}
@@ -50,22 +52,21 @@ public class LoginController {
 	}
 	
 	
-	
-	@RequestMapping(value="loan",method=RequestMethod.GET)
-	public String loan(Model model) {
+	@RequestMapping(value="logout")
+	public String logout(HttpSession session) {
 		
+		session.invalidate();
 		
-		
-		
-		List<LoanDto> loans = loginService.findAllLoans();
-		
-		model.addAttribute("loans",loans);
-		
-		return "loan";
-		
-		
-		
+		return "redirect:page";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
