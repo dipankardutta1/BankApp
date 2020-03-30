@@ -23,12 +23,12 @@ public class LoanController {
 		
 		
 		
-		
+	/*	
 		List<LoanDto> loans = loginService.findAllLoans();
 		
 		model.addAttribute("loans",loans);
 		
-		
+		*/
 		
 		
 		return "loan";
