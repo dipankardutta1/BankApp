@@ -47,9 +47,14 @@ public class LoginController {
 			
 			session.setAttribute("isLoggedIn", true);
 			
+			
+			//model.addAttribute("isLoggedIn", true);
+			
 			List<MenuDto> menus = adminService.findMenusById(userDto.getId());
 			
 			session.setAttribute("menus", menus);
+			
+			
 			
 			return "dashboard.jsp";
 		}
@@ -64,7 +69,7 @@ public class LoginController {
 		
 		session.invalidate();
 		
-		return "redirect:page";
+		return "redirect:login";
 	}
 	
 	

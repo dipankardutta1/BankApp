@@ -31,7 +31,7 @@ public class LoanController {
 		*/
 		
 		
-		return "loan";
+		return "loan.jsp";
 		
 		
 		

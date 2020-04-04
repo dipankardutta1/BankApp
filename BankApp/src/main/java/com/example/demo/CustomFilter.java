@@ -16,7 +16,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 
-
+@Component
 public class CustomFilter implements Filter {
  
     @Override
@@ -28,7 +28,7 @@ public class CustomFilter implements Filter {
     	HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession(false);
-        String loginURI = request.getContextPath() + "/page";
+        String loginURI = request.getContextPath() + "/login";
         String loginPostURI = request.getContextPath() + "/dologin";
 
         boolean loggedIn = session != null && session.getAttribute("isLoggedIn") != null;
